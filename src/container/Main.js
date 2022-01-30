@@ -58,15 +58,6 @@ const Main = () => {
 
 	return (
 		<div className="mainContainer">
-			<video
-				className="bg-video"
-				playsInline
-				autoPlay
-				muted
-				loop
-				src="https://github.com/younghwani/temp/blob/master/sunrise.mp4?raw=true"
-				typeof="video/mp4"
-			></video>
 			<div className="contentsContainer">
 				<Header />
 				{isLoading ? (
