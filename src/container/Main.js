@@ -18,6 +18,7 @@ const Main = () => {
 		updateTextLen();
 	}
 
+	// TODO: 단어 수 세는 로직 필요하다.
 	const updateTextLen = React.useCallback(() => {
 		document.querySelector(
 			'.label__right'
@@ -40,9 +41,9 @@ const Main = () => {
 		window.location.href = `/result/${output}`;
 	};
 
-	// TODO: 글자수가 일정 범위 이상이면 요약을 하지 못하도록 막도록 구성한다. - copy&paste 시 500자 이상 등록되는 것을 방지하기
+	// TODO: 텍스트 길이가 일정 범위 이상이면 요약을 하지 못하도록 막도록 구성한다. - copy&paste 시 500 단어 이상 등록되는 것을 방지하기
 	function handleKeyPress(target) {
-		alert('500자 이하로 입력해주세요!');
+		alert('500 단어 이하로 입력해주세요!');
 		setInput('');
 		document.getElementById('input').value = '';
 	}
@@ -80,7 +81,7 @@ const Main = () => {
 							<Form onSubmit={handleSubmitKor}>
 								<Label for="input" className="label">
 									<div className="label__left">
-										요약할 텍스트를 입력해주세요. 500자
+										요약할 텍스트를 입력해주세요. 500 단어
 										이내로 입력하세요!
 									</div>
 									<div className="label__right">
