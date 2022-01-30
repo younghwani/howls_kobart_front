@@ -101,9 +101,6 @@ const Main = () => {
 									<Button color="success" type="submit">
 										요약하기
 									</Button>{' '}
-									<Button color="danger" href={`/`}>
-										취소
-									</Button>
 								</FormGroup>
 							</Form>
 						</div>
