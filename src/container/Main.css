@@ -27,31 +27,6 @@ video.bg-video {
 	border-radius: 25px;
 }
 
-.btns {
-	text-align: center;
-}
-.btn1 {
-	margin-right: -2px;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-.btn2 {
-	margin-left: -2px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-.btns button {
-	font-size: 25px;
-	border: 3px solid skyblue;
-	background-color: rgba(0, 0, 0, 0);
-	color: skyblue;
-	padding: 5px 7px 5px 7px;
-}
-.btns button:hover {
-	color: white;
-	background-color: skyblue;
-}
-
 .resultBtn {
 	text-align: center;
 }
