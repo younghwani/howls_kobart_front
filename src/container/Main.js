@@ -43,18 +43,17 @@ const Main = () => {
 
 	// TODO: 텍스트 길이가 일정 범위 이상이면 요약을 하지 못하도록 막도록 구성한다. - copy&paste 시 500 단어 이상 등록되는 것을 방지하기
 	function handleKeyPress(target) {
-		alert('500 단어 이하로 입력해주세요!');
+		if (input.length >= 2000) {
+			alert('500 단어 이하로 입력해주세요!');
+			setInput('');
+			document.getElementById('input').value = '';
+		}
+	}
+
+	function btnRefresh() {
 		setInput('');
 		document.getElementById('input').value = '';
 	}
-
-	// function btnClickKo() {
-	// 	if (!isKor) {
-	// 		setInput('');
-	// 		document.getElementById('input').value = '';
-	// 	}
-	// 	setIsKor(true);
-	// }
 
 	return (
 		<div className="mainContainer">
@@ -78,6 +77,12 @@ const Main = () => {
 									<div className="label__right">
 										텍스트 길이가 표시됩니다.
 									</div>
+									<Button
+										color="primary"
+										onClick={btnRefresh}
+									>
+										새로고침
+									</Button>
 								</Label>
 								<br />
 								<textarea
