@@ -11,7 +11,23 @@ const Footer = () => (
 				target="_blank"
 				style={{ color: 'black' }}
 			>
-				Younghwani
+				younghwani
+			</Link>
+			{', '}
+			<Link
+				to={{ pathname: 'https://github.com/SongJongbeen' }}
+				target="_blank"
+				style={{ color: 'black' }}
+			>
+				SongJongbeen
+			</Link>
+			{', '}
+			<Link
+				to={{ pathname: 'https://github.com/riproskaie' }}
+				target="_blank"
+				style={{ color: 'black' }}
+			>
+				riproskaie
 			</Link>
 		</div>
 	</div>
