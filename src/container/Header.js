@@ -3,8 +3,8 @@ import './Header.css';
 
 const Header = () => (
 	<div className="header">
-		<h1>KoBART 요약</h1>
-		<h3>지금 사용해보세요!!</h3>
+		<h1>한국어 뉴스 요약</h1>
+		<h3>Specialized in legal news</h3>
 	</div>
 );
 
