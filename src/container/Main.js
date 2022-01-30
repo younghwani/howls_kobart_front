@@ -8,7 +8,6 @@ import Header from './Header';
 const Main = () => {
 	const [input, setInput] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
-	const [isKor, setIsKor] = useState(true);
 
 	let output = '';
 
@@ -29,18 +28,6 @@ const Main = () => {
 		updateTextLen();
 	}, [updateTextLen]);
 
-	const handleSubmitEn = async (event) => {
-		event.preventDefault();
-		setIsLoading(true);
-		const data = await axios.get(
-			`http://localhost:8080/api/summary?text=${input}`
-		);
-		output = data.data.output;
-		console.log(output);
-		setIsLoading(false);
-		window.location.href = `/result/${output}`;
-	};
-
 	const handleSubmitKor = async (event) => {
 		event.preventDefault();
 		setIsLoading(true);
@@ -55,29 +42,18 @@ const Main = () => {
 
 	// TODO: 글자수가 일정 범위 이상이면 요약을 하지 못하도록 막도록 구성한다. - copy&paste 시 500자 이상 등록되는 것을 방지하기
 	function handleKeyPress(target) {
-		if (input.length > 500 && isKor) {
-			alert('500자 이하로 입력해주세요!');
-		} else if (input.length > 500 && !isKor) {
-			alert('Please reduce the text length to 500 characters or less!');
-		}
+		alert('500자 이하로 입력해주세요!');
 		setInput('');
 		document.getElementById('input').value = '';
 	}
 
-	function btnClickKo() {
-		if (!isKor) {
-			setInput('');
-			document.getElementById('input').value = '';
-		}
-		setIsKor(true);
-	}
-	function btnClickEn() {
-		if (isKor) {
-			setInput('');
-			document.getElementById('input').value = '';
-		}
-		setIsKor(false);
-	}
+	// function btnClickKo() {
+	// 	if (!isKor) {
+	// 		setInput('');
+	// 		document.getElementById('input').value = '';
+	// 	}
+	// 	setIsKor(true);
+	// }
 
 	return (
 		<div className="mainContainer">
@@ -99,86 +75,41 @@ const Main = () => {
 					</div>
 				) : (
 					<Container className="formContainer">
-						<div className="btns">
-							<button className="btn1" onClick={btnClickKo}>
-								한글 요약
-							</button>
-							<button className="btn2" onClick={btnClickEn}>
-								영어 요약
-							</button>
-						</div>
 						<br />
-						{isKor ? (
-							<div>
-								<Form onSubmit={handleSubmitKor}>
-									<Label for="input" className="label">
-										<div className="label__left">
-											요약할 텍스트를 입력해주세요
-											(한글만)!! 500자 이내로 입력하세요!
-										</div>
-										<div className="label__right">
-											텍스트 길이가 표시됩니다.
-										</div>
-									</Label>
-									<br />
-									<textarea
-										className="input__text"
-										type="text"
-										name="input"
-										id="input"
-										value={input}
-										onChange={onInputChange}
-										placeholder="한글 텍스트를 입력"
-										onKeyPress={handleKeyPress}
-									/>
-									<br />
-									<br />
-									<FormGroup className="resultBtn">
-										<Button color="success" type="submit">
-											요약하기
-										</Button>{' '}
-										<Button color="danger" href={`/`}>
-											취소
-										</Button>
-									</FormGroup>
-								</Form>
-							</div>
-						) : (
-							<div>
-								<Form onSubmit={handleSubmitEn}>
-									<Label for="input" className="label">
-										<div className="label__left">
-											Input text (only english)!! Max
-											length: 500!
-										</div>
-										<div className="label__right">
-											The text length is displayed.
-										</div>
-									</Label>
-									<br />
-									<textarea
-										className="input__text"
-										type="text"
-										name="input"
-										id="input"
-										value={input}
-										onChange={onInputChange}
-										placeholder="Input text.."
-										onKeyPress={handleKeyPress}
-									/>
-									<br />
-									<br />
-									<FormGroup className="resultBtn">
-										<Button color="success" type="submit">
-											요약하기
-										</Button>{' '}
-										<Button color="danger" href={`/`}>
-											취소
-										</Button>
-									</FormGroup>
-								</Form>
-							</div>
-						)}
+						<div>
+							<Form onSubmit={handleSubmitKor}>
+								<Label for="input" className="label">
+									<div className="label__left">
+										요약할 텍스트를 입력해주세요. 500자
+										이내로 입력하세요!
+									</div>
+									<div className="label__right">
+										텍스트 길이가 표시됩니다.
+									</div>
+								</Label>
+								<br />
+								<textarea
+									className="input__text"
+									type="text"
+									name="input"
+									id="input"
+									value={input}
+									onChange={onInputChange}
+									placeholder="텍스트를 입력해주세요.."
+									onKeyPress={handleKeyPress}
+								/>
+								<br />
+								<br />
+								<FormGroup className="resultBtn">
+									<Button color="success" type="submit">
+										요약하기
+									</Button>{' '}
+									<Button color="danger" href={`/`}>
+										취소
+									</Button>
+								</FormGroup>
+							</Form>
+						</div>
 						<br />
 						<br />
 					</Container>
