@@ -11,18 +11,9 @@
 .formContainer {
 	margin-top: 50px;
 	margin-bottom: 100px;
-	padding: 25px 25px 0px 25px;
+	padding: 25px 25px 55px 25px;
 	background-color: rgba(0, 0, 0, 0.4);
 	border-radius: 25px;
-}
-
-.resultBtn {
-	text-align: center;
-}
-
-.runningMsg {
-	margin-top: 100px;
-	text-align: center;
 }
 
 .input__text {
@@ -35,10 +26,13 @@
 	width: 100%;
 	color: white;
 	display: inline-flex;
+	justify-content: space-between;
 }
-.label .label__left {
-	width: 50%;
-}
-.label .label__right {
-	width: 50%;
+
+.form__footer {
+	margin-top: 5px;
+	width: 20%;
+	display: flex;
+	justify-content: space-between;
+	float: right;
 }
