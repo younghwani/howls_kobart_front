@@ -4,6 +4,7 @@ import './Main.css';
 import { Container, Form, FormGroup, Label, Button } from 'reactstrap';
 import Footer from './Footer';
 import Header from './Header';
+import loadImg from '../loadImg.png';
 
 const Main = () => {
 	const [input, setInput] = useState('');
@@ -85,7 +86,10 @@ const Main = () => {
 							텍스트 길이가 표시됩니다.
 						</div>
 						{isLoading ? (
+							<>
+							<img className="loadingResult" src={loadImg} alt="Loading..."/>
 							<p>요약 중입니다.</p>
+							</>
 						) : (
 							<FormGroup className="resultBtn">
 								<Button color="success" type="submit">

@@ -6,6 +6,7 @@
 	display: vertical;
 	align-items: center;
 	justify-content: center;
+	background-color: beige;
 }
 .summary {
 	margin-top: 50px;

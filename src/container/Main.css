@@ -6,6 +6,7 @@
 	display: vertical;
 	align-items: center;
 	justify-content: center;
+	background-color: beige;
 }
 
 .formContainer {
@@ -35,4 +36,17 @@
 	display: flex;
 	justify-content: space-between;
 	float: right;
+}
+
+img.loadingResult {
+	width: 20px;
+	height: 20px;
+	animation: rotate_image 1s linear infinite;
+	transform-origin: 50% 50%;
+}
+
+@keyframes rotate_image {
+	100% {
+		transform: rotate(360deg);
+	}
 }

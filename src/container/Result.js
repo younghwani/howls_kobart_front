@@ -17,7 +17,9 @@ const Result = ({ match }) => {
 			<div className="summary">
 				<div className="contents">
 					<h2>요약 결과</h2>
+					<p>“</p>
 					<p>{result}</p>
+					<p>”</p>
 				</div>
 				<div className="backBtn">
 					<Button color="primary" onClick={mainPageBtnClick}>
