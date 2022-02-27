@@ -57,50 +57,65 @@ const Main = () => {
 	}
 
 	return (
-		<div className="contentsContainer">
-			<Header />
-			<Container className="formContainer">
-				<Form onSubmit={handleSubmit}>
-					<Label for="input" className="label">
-						<div className="label__desc">
-							요약할 텍스트를 입력해주세요. 500 단어 이내로
-							입력하세요!
+		<div className="MainContainer">
+			<video
+				className="bg-video"
+				playsInline
+				autoPlay
+				muted
+				loop
+				src="https://github.com/younghwani/temp/blob/master/newsstand.mp4?raw=true"
+				typeof="video/mp4"
+			></video>
+			<div className="contentsContainer">
+				<Header />
+				<Container className="formContainer">
+					<Form onSubmit={handleSubmit}>
+						<Label for="input" className="label">
+							<div className="label__desc">
+								요약할 텍스트를 입력해주세요. 500 단어 이내로
+								입력하세요!
+							</div>
+							<Button color="primary" onClick={btnRefresh}>
+								새로고침
+							</Button>
+						</Label>
+						<br />
+						<textarea
+							className="input__text"
+							type="text"
+							name="input"
+							id="input"
+							value={input}
+							onChange={onInputChange}
+							placeholder="텍스트를 입력해주세요.."
+							onKeyPress={handleKeyPress}
+						/>
+						<div className="form__footer">
+							<div className="text_len">
+								텍스트 길이가 표시됩니다.
+							</div>
+							{isLoading ? (
+								<>
+									<img
+										className="loadingResult"
+										src={loadImg}
+										alt="Loading..."
+									/>
+									<p>요약 중입니다.</p>
+								</>
+							) : (
+								<FormGroup className="resultBtn">
+									<Button color="success" type="submit">
+										요약하기
+									</Button>{' '}
+								</FormGroup>
+							)}
 						</div>
-						<Button color="primary" onClick={btnRefresh}>
-							새로고침
-						</Button>
-					</Label>
-					<br />
-					<textarea
-						className="input__text"
-						type="text"
-						name="input"
-						id="input"
-						value={input}
-						onChange={onInputChange}
-						placeholder="텍스트를 입력해주세요.."
-						onKeyPress={handleKeyPress}
-					/>
-					<div className="form__footer">
-						<div className="text_len">
-							텍스트 길이가 표시됩니다.
-						</div>
-						{isLoading ? (
-							<>
-							<img className="loadingResult" src={loadImg} alt="Loading..."/>
-							<p>요약 중입니다.</p>
-							</>
-						) : (
-							<FormGroup className="resultBtn">
-								<Button color="success" type="submit">
-									요약하기
-								</Button>{' '}
-							</FormGroup>
-						)}
-					</div>
-				</Form>
-			</Container>
-			<Footer />
+					</Form>
+				</Container>
+				<Footer />
+			</div>
 		</div>
 	);
 };
