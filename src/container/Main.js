@@ -58,7 +58,7 @@ const Main = () => {
 
 	return (
 		<div className="MainContainer">
-			<video
+			{/* <video
 				className="bg-video"
 				playsInline
 				autoPlay
@@ -66,7 +66,7 @@ const Main = () => {
 				loop
 				src="https://github.com/younghwani/temp/blob/master/newsstand.mp4?raw=true"
 				typeof="video/mp4"
-			></video>
+			></video> */}
 			<div className="contentsContainer">
 				<Header />
 				<Container className="formContainer">

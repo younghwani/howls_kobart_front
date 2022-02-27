@@ -13,7 +13,7 @@ const Result = ({ match }) => {
 
 	return (
 		<div className="MainContainer">
-			<video
+			{/* <video
 				className="bg-video"
 				playsInline
 				autoPlay
@@ -21,7 +21,7 @@ const Result = ({ match }) => {
 				loop
 				src="https://github.com/younghwani/temp/blob/master/newsstand.mp4?raw=true"
 				typeof="video/mp4"
-			></video>
+			></video> */}
 			<div className="resultContainer">
 				<Header />
 				<div className="summary">
